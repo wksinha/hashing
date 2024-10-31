@@ -19,9 +19,7 @@ private:
 public:
     void put(long long, std::string const&);
     std::string const& get(long long);
-    PooledAssociateArray(std::string const& defaultValue) {
-        pool.add(defaultValue);
-    }
+    PooledAssociateArray(std::string const& defaultValue);
 };
 
 int main() {
@@ -61,6 +59,10 @@ size_t StringPool::add(std::string const& s) {
 
 std::string const& StringPool::get(size_t pos) {
     return invertedIndex[pos];
+}
+
+PooledAssociateArray::PooledAssociateArray(std::string const& defaultValue) {
+    pool.add(defaultValue);
 }
 
 void PooledAssociateArray::put(long long key, std::string const& value) {
